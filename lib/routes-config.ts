@@ -54,7 +54,7 @@ export const ROUTES: EachRoute[] = [
         ],
     },
     {
-        title: "Taro的尝试",
+        title: "Taro 的尝试",
         href: "/start-with-taro",
         noLink: true,
         items: [
