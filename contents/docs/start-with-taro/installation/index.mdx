@@ -1,0 +1,51 @@
+---
+title: Installation
+description: 讲讲安装和使用
+ 
+---
+
+## 关于 Taro
+
+这是一个跨端跨框架的解决方案框架，它通过原生组件编译，运行时环境拓展，实现了多端开发，主要在于兼容纯网页，各大平台小程序，以及 RN。
+
+它是 **框架无关的**，支持 React Vue Preact Svelte Nerv。
+
+他提供了一套 UI，但是 **不支持 RN**，~~个人感觉没有 Vant 好看~~。
+
+## 安装 cli
+
+按照经验...这种 cli 更新速度很快，建议 **全局安装并定期更新**，或者每次都使用 `pnpm dlx`
+
+全局安装的话，
+
+```shell
+ pnpm install -g @tarojs/cli
+```
+
+可以定期看下最新版本：
+
+```shell
+pnpm info @tarojs/cli
+```
+
+## 创建项目
+
+```shell
+taro init <项目名称>
+```
+
+
+
+![image-20250220191654396](/home/grtsinry43/.config/Typora/typora-user-images/image-20250220191654396.png)
+
+## 运行和启动
+
+这里启动然后放到微信开发者工具就可以（以微信小程序为例）
+
+```shell
+pnpm run dev:weapp
+```
+
+然后微信开发者工具打开项目根目录，预览就可以了。
+
+我喜欢只开预览，另一边打开 WebStorm，微信那个用不了一点。

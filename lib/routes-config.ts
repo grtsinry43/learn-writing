@@ -53,6 +53,22 @@ export const ROUTES: EachRoute[] = [
             {title: "Overview", href: "/overview"},
         ],
     },
+    {
+        title: "Taro的尝试",
+        href: "/start-with-taro",
+        noLink: true,
+        items: [
+            {title: "Installation", href: "/installation"},
+        ]
+    },
+    {
+        title: "机器学习入门",
+        href: "/machine-learning",
+        noLink: true,
+        items: [
+            {title: "模型评估和选择", href: "/chapter-1"},
+        ]
+    }
 ];
 
 type Page = { title: string; href: string };
