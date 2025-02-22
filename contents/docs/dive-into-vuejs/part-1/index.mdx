@@ -1,0 +1,36 @@
+---
+title: Part1
+description: 组件通信相关
+---
+
+## 父子组件通信
+
+父子组件的通信方式：prop，event，style 和 class（很少用），attribute（更少用）
+
+attrbute 行为可以禁用，只需要 `inheritAttrs:false`，不会附着到根元素，但仍可通过 `$attr` 获取。
+
+子组件可以用 `$listeners` 获取父组件传过来的所有事件处理函数
+
+sync 修饰符，用于双向绑定（是因为设计缺陷，仅在 Vue2），这是一个语法糖，其要求事件触发名字必须为 update: （变量名）
+
+```html
+<button :num1="num1" @update:num1="num1 = $event"/>
+
+<button :num2="num2" :num2.sync="num2"/>
+```
+
+用 `$parent` 和 `children` 可以获取父子组件（所有实例），在 `mounted(){}` 钩子可以获取
+
+另外，插槽 `$slot` `$scopedSlots`，`ref` 也可以父子组件通信（`this.$refs`）
+
+## 跨组件通信
+
+父组件可以通过 `provide:{}` 提供数据，字组件可以 `inject:[]`，会增加耦合程度。
+
+通过 router，各组件监听，作出改变。
+
+Vuex 数据仓库，mutation 和 action。
+
+手动用 store 模式写数据仓库，适用于中小型项目。
+
+最后是事件总线，直接触发和处理，利用观察者模式。

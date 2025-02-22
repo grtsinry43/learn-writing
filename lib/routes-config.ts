@@ -68,6 +68,16 @@ export const ROUTES: EachRoute[] = [
         items: [
             {title: "模型评估和选择", href: "/chapter-1"},
         ]
+    },
+    {
+        title: "Vue.js 深入学习",
+        href: "/dive-into-vuejs",
+        noLink: true,
+        items: [
+            {title: "组件通信相关", href: "/part-1"},
+            {title: "虚拟 DOM", href: "/part-2"},
+            {title: "v-model 语法糖", href: "/part-3"},
+        ]
     }
 ];
 
