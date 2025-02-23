@@ -77,6 +77,8 @@ export const ROUTES: EachRoute[] = [
             {title: "组件通信相关", href: "/part-1"},
             {title: "虚拟 DOM", href: "/part-2"},
             {title: "v-model 语法糖", href: "/part-3"},
+            {title: "vue2 响应式原理", href: "/part-4"},
+            {title: "diff 算法", href: "/part-5"},
         ]
     }
 ];
