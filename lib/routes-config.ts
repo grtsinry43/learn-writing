@@ -80,10 +80,18 @@ export const ROUTES: EachRoute[] = [
             {title: "vue2 响应式原理", href: "/part-4"},
             {title: "diff 算法", href: "/part-5"},
         ]
+    },
+    {
+        title: "Jetpack Compose",
+        href:" /jetpack-compose",
+        noLink: true,
+        items:[
+            {title: "叙述", href: "/overview"},
+        ]
     }
 ];
 
-type Page = { title: string; href: string };
+type Page = {title: string; href: string};
 
 function getRecurrsiveAllLinks(node: EachRoute) {
     const ans: Page[] = [];
