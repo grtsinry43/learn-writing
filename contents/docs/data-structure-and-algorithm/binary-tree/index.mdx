@@ -1,0 +1,253 @@
+---
+title: Binary Tree
+description: 二叉树
+---
+
+<Note title="Tip">
+    二叉树是一种树形数据结构，每个节点最多有两个子节点，分别称为左子节点和右子节点。
+
+    二叉树的遍历方式有前序遍历、中序遍历、后序遍历和层序遍历。
+
+    二叉树的性质包括：满二叉树、完全二叉树、平衡二叉树等。
+
+    对于二叉树题，我们要善用递归，（你只管写，剩下的交给递归 hhh），
+</Note>
+
+那么 OK，咱们先从三大遍历开始吧！
+
+## 1. 二叉树的前序遍历
+[leetcode 144](https://leetcode.cn/problems/binary-tree-preorder-traversal/)
+
+前序遍历的顺序是：根节点 -> 左子树 -> 右子树。
+
+<Note title="Tip">
+    前序遍历的思路是：
+    1. 访问根节点；
+    2. 递归地前序遍历左子树；
+    3. 递归地前序遍历右子树。
+</Note>
+
+```javascript
+var preorderTraversal = function(root) {
+    const res = [];
+    const dfs = (node) => {
+        if (!node) return;
+        res.push(node.val); // 访问根节点
+        dfs(node.left); // 递归前序遍历左子树
+        dfs(node.right); // 递归前序遍历右子树
+    };
+    dfs(root);
+    return res;
+};
+```
+
+## 2. 二叉树的中序遍历
+[leetcode 94](https://leetcode.cn/problems/binary-tree-inorder-traversal/)
+
+中序遍历的顺序是：左子树 -> 根节点 -> 右子树。
+
+<Note title="Tip">
+    中序遍历的思路是：
+    1. 递归地中序遍历左子树；
+    2. 访问根节点；
+    3. 递归地中序遍历右子树。
+</Note>
+
+```javascript
+var inorderTraversal = function(root) {
+    const res = [];
+    const dfs = (node) => {
+        if (!node) return;
+        dfs(node.left); // 递归中序遍历左子树
+        res.push(node.val); // 访问根节点
+        dfs(node.right); // 递归中序遍历右子树
+    };
+    dfs(root);
+    return res;
+};
+```
+
+## 3. 二叉树的后序遍历
+[leetcode 145](https://leetcode.cn/problems/binary-tree-postorder-traversal/)
+
+后序遍历的顺序是：左子树 -> 右子树 -> 根节点。
+
+<Note title="Tip">
+    后序遍历的思路是：
+    1. 递归地后序遍历左子树；
+    2. 递归地后序遍历右子树；
+    3. 访问根节点。
+</Note>
+
+```javascript
+var postorderTraversal = function(root) {
+    const res = [];
+    const dfs = (node) => {
+        if (!node) return;
+        dfs(node.left); // 递归后序遍历左子树
+        dfs(node.right); // 递归后序遍历右子树
+        res.push(node.val); // 访问根节点
+    };
+    dfs(root);
+    return res;
+};
+```
+
+不难看出，三种遍历的思路都是类似的，只是访问根节点的位置不同而已。
+
+~~ 这不是有手就行嘛 ~~
+
+## 4. 二叉树的最大深度
+[leetcode 104](https://leetcode.cn/problems/maximum-depth-of-binary-tree/)
+
+二叉树的最大深度是指从根节点到最远叶子节点的最长路径上的节点数。
+
+思路就是递归，每次都取左右子树的最大深度，然后加一。
+
+你只管写，剩下的交给递归 hhh
+
+<Note title="Tip">
+    二叉树的最大深度的思路是：
+    1. 如果节点为空，返回 0；
+    2. 递归地计算左子树和右子树的最大深度；
+    3. 返回左右子树的最大深度加一。
+</Note>
+
+```javascript
+var maxDepth = function(root) {
+    if (!root) return 0;
+    return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1;
+};
+```
+
+## 5. 相同的树
+[leetcode 100](https://leetcode.cn/problems/same-tree/)
+
+给定两个二叉树，编写一个函数来检查它们是否相同。
+
+如果它们的结构和节点值都相同，则认为它们是相同的。
+
+思路就是递归，判断当前节点的值是否相同，然后递归判断左右子树。
+
+<Note title="Tip">
+    相同的树的思路是：
+    1. 如果两个节点都为空，返回 true；
+    2. 如果一个节点为空，另一个节点不为空，返回 false；
+    3. 如果两个节点的值不同，返回 false；
+    4. 递归地判断左子树和右子树是否相同。
+</Note>
+
+```javascript
+var isSameTree = function(p, q) {
+    if (!p && !q) return true;
+    if (!p || !q) return false;
+    if (p.val !== q.val) return false;
+    return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
+};
+```
+
+## 6. 反转二叉树
+[leetcode 226](https://leetcode.cn/problems/invert-binary-tree/)
+
+反转二叉树就是将二叉树的左右子树交换。
+
+思路就是递归，交换左右子树，然后递归反转左右子树。
+
+<Note title="Tip">
+    反转二叉树的思路是：
+    1. 如果节点为空，返回 null；
+    2. 交换左右子树；
+    3. 递归地反转左子树和右子树。
+</Note>
+
+```javascript
+var invertTree = function(root) {
+    if (root === null) return null;
+    var left = invertTree(root.left);
+    var right = invertTree(root.right);
+    root.left = right;
+    root.right = left;
+    return root;
+
+};
+```
+或是更好理解的写法：
+
+```javascript
+var invertTree = function(root) {
+    if (!root) return null;
+    [root.left, root.right] = [root.right, root.left]; // 交换左右子树
+    invertTree(root.left); // 递归反转左子树
+    invertTree(root.right); // 递归反转右子树
+    return root;
+};
+```
+
+## 7. 对称二叉树
+[leetcode 101](https://leetcode.cn/problems/symmetric-tree/)
+
+对称二叉树是指一棵二叉树的左子树和右子树是镜像对称的。
+
+思路就是递归，判断左子树和右子树是否对称。
+
+<Note title="Tip">
+    对称二叉树的思路是：
+    1. 如果两个节点都为空，返回 true；
+    2. 如果一个节点为空，另一个节点不为空，返回 false；
+    3. 如果两个节点的值不同，返回 false；
+    4. 递归地判断左子树和右子树是否对称。
+    5. 递归地判断右子树和左子树是否对称。
+    6. 返回左右子树是否对称。
+</Note>
+
+```javascript
+var isSymmetric = function(root) {
+    if (!root) return true;
+    const isMirror = (left, right) => {
+        if (!left && !right) return true;
+        if (!left || !right) return false;
+        return left.val === right.val && isMirror(left.left, right.right) && isMirror(left.right, right.left);
+    };
+    return isMirror(root.left, root.right);
+};
+```
+
+## 8. 求根节点到叶节点数字之和
+[leetcode 129](https://leetcode.cn/problems/sum-root-to-leaf-numbers/)
+
+给你一个二叉树的根节点 root ，树中每个节点都存放有一个 0 到 9 之间的数字。
+每条从根节点到叶节点的路径都代表一个数字：
+
+例如，从根节点到叶节点的路径 1 -> 2 -> 3 表示数字 123 。
+计算从根节点到叶节点生成的 所有数字之和 。
+
+叶节点 是指没有子节点的节点。
+
+思路就是递归，遍历每一条路径，计算路径上的数字之和。
+
+<Note title="Tip">
+    求根节点到叶节点数字之和的思路是：
+    1. 如果节点为空，返回 0；
+    2. 如果节点是叶子节点，返回当前路径上的数字；
+    3. 递归地计算左子树和右子树的数字之和；
+    4. 返回左右子树的数字之和。
+</Note>
+
+```javascript
+var sumNumbers = function(root) {
+    if (!root) return 0;
+    let sum = 0;
+    const dfs = (node, path) => {
+        if (!node) return;
+        path = path * 10 + node.val; // 更新路径上的数字
+        if (!node.left && !node.right) { // 如果是叶子节点
+            sum += path; // 将路径上的数字加到总和中
+            return;
+        }
+        dfs(node.left, path); // 递归遍历左子树
+        dfs(node.right, path); // 递归遍历右子树
+    };
+    dfs(root, 0);
+    return sum;
+};
+```

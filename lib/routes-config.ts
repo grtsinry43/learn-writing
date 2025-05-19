@@ -14,7 +14,7 @@ export const ROUTES: EachRoute[] = [
         href: "/getting-started",
         noLink: true,
         items: [
-            {title: "Introduction", href: "/introduction", tag: "New"},
+            {title: "Introduction", href: "/introduction"},
             // {
             //     title: "Installation",
             //     href: "/installation",
@@ -43,6 +43,15 @@ export const ROUTES: EachRoute[] = [
             //     title: "Customize",
             //     href: "/customize",
             // },
+        ],
+    },
+    {
+        title: "数据结构与算法",
+        href: "/data-structure-and-algorithm",
+        items: [
+            {title: "Introduction", href: "/", tag: "New"},
+            {title: "Linked List", href: "/linked-list", tag: "New"},
+            {title: "Binary Tree", href: "/binary-tree", tag: "New"},
         ],
     },
     {
@@ -83,15 +92,15 @@ export const ROUTES: EachRoute[] = [
     },
     {
         title: "Jetpack Compose",
-        href:" /jetpack-compose",
+        href: " /jetpack-compose",
         noLink: true,
-        items:[
+        items: [
             {title: "叙述", href: "/overview"},
         ]
     }
 ];
 
-type Page = {title: string; href: string};
+type Page = { title: string; href: string };
 
 function getRecurrsiveAllLinks(node: EachRoute) {
     const ans: Page[] = [];
