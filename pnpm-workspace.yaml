@@ -1,0 +1,4 @@
+onlyBuiltDependencies:
+  - rehype-code-titles
+  - sharp
+  - unrs-resolver
