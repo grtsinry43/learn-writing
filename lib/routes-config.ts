@@ -87,12 +87,33 @@ export const ROUTES: EachRoute[] = [
             {title: "虚拟 DOM", href: "/part-2"},
             {title: "v-model 语法糖", href: "/part-3"},
             {title: "vue2 响应式原理", href: "/part-4"},
-            {title: "diff 算法", href: "/part-5"},
+        ]
+    },
+    {
+        title: "CC Learn Docs",
+        href: "/cc-learn-docs",
+        noLink: true,
+        items: [
+            {title: "00 Progress Tracker", href: "/00-progress-tracker"},
+            {title: "01 Entrypoint Startup Architecture", href: "/01-entrypoint-startup-architecture"},
+            {title: "02 Command System Architecture", href: "/02-command-system-architecture"},
+            {title: "03 Query Engine And Turn Loop", href: "/03-query-engine-and-turn-loop"},
+            {title: "04 Tool Framework And Orchestration", href: "/04-tool-framework-and-orchestration"},
+            {title: "05 Task Framework And Background Jobs", href: "/05-task-framework-and-background-jobs"},
+            {title: "06 State Repl Rendering", href: "/06-state-repl-rendering"},
+            {title: "07 Context And Memory System", href: "/07-context-and-memory-system"},
+            {title: "08 Mcp Plugins Skills Ecosystem", href: "/08-mcp-plugins-skills-ecosystem"},
+            {title: "09 Permission And Sandbox Boundary", href: "/09-permission-and-sandbox-boundary"},
+            {title: "10 Api Model Budget Compact", href: "/10-api-model-budget-compact"},
+            {title: "11 Remote Bridge Multi Endpoint", href: "/11-remote-bridge-multi-endpoint"},
+            {title: "12 Cross Cutting Infrastructure", href: "/12-cross-cutting-infrastructure"},
+            {title: "13 Full Src Coverage Index", href: "/13-full-src-coverage-index"},
+            {title: "14 Top 10 Reusable Patterns And Templates", href: "/14-top-10-reusable-patterns-and-templates"},
         ]
     },
     {
         title: "Jetpack Compose",
-        href: " /jetpack-compose",
+        href: "/jetpack-compose",
         noLink: true,
         items: [
             {title: "叙述", href: "/overview"},

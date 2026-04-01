@@ -1,0 +1,36 @@
+---
+title: "Claude Code `src/` 深度学习文档 - 进度追踪"
+description: "CC Learn Docs"
+---
+
+# Claude Code `src/` 深度学习文档 - 进度追踪
+
+> 约束：仅基于 `src/` 代码分析；明确不参考仓库已有文档（`README*`/`docs*` 等）作为结论来源。
+
+## 分析策略
+- 按模块分批分析，先核心链路再周边能力。
+- 每批次完成后立即落盘，防止上下文丢失。
+- 所有结论标注证据文件路径。
+
+## 模块追踪
+- [x] 01. 入口与启动编排（`main.tsx`, `setup.ts`, `entrypoints/`, `bootstrap/`）
+- [x] 02. 命令系统（`commands.ts`, `commands/`, `cli/`）
+- [x] 03. 查询引擎与会话循环（`QueryEngine.ts`, `query.ts`, `query/`）
+- [x] 04. Tool 框架与工具调度（`Tool.ts`, `tools.ts`, `tools/`, `services/tools/`）
+- [x] 05. Task 框架与后台任务（`Task.ts`, `tasks.ts`, `tasks/`, `components/tasks/`）
+- [x] 06. 状态管理与 REPL 交互（`state/`, `interactiveHelpers.tsx`, `ink/`, `components/App.tsx`）
+- [x] 07. 上下文与记忆系统（`context.ts`, `context/`, `memdir/`, `services/SessionMemory/`）
+- [x] 08. MCP 与插件生态（`services/mcp/`, `plugins/`, `skills/`, `utils/plugins/`）
+- [x] 09. 权限与安全边界（`utils/permissions/`, `components/permissions/`, `sandbox/`）
+- [x] 10. API/模型/预算/压缩（`services/api/`, `services/compact/`, `utils/model/`, `cost-tracker.ts`）
+- [x] 11. 远程/桥接/多端（`bridge/`, `remote/`, `server/`, `upstreamproxy/`）
+- [x] 12. 支撑基建与横切（`utils/`, `hooks/`, `keybindings/`, `migrations/`, `constants/`）
+- [x] 13. 全量 src 覆盖校验与索引
+- [x] 14. 最值得复用的 10 个工程模式与模板
+
+## 变更日志
+- 2026-04-01: 初始化追踪文档与模块清单。
+- 2026-04-01: 完成 01 模块（入口与启动编排），新增 `01-entrypoint-startup-architecture.md`。
+- 2026-04-01: 完成 02–09 模块，新增命令/查询/工具/任务/状态/记忆/MCP/权限文档。
+- 2026-04-01: 完成 10–13 模块，新增 API+压缩、远程桥接、横切基建、全量索引文档。
+- 2026-04-01: 新增复用向总结 `14-top-10-reusable-patterns-and-templates.md`，提炼 10 个可迁移模式与 TypeScript 模板。
